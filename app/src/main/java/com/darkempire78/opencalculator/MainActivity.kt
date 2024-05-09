@@ -18,7 +18,7 @@ import android.widget.Button
 import android.widget.HorizontalScrollView
 import android.widget.Toast
 import androidx.activity.addCallback
-import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.*
 import androidx.appcompat.widget.PopupMenu
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment
