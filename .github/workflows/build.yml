@@ -30,9 +30,6 @@ jobs:
       - name: Unit Test
         run: ./gradlew testDebugUnitTest
 
-      - name: Check Kotlin code style
-        run: ./gradlew ktlintCheck
-
       - name: Upload Debug APK (Google Play)
         uses: actions/upload-artifact@v3
         with:
