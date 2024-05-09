@@ -1,6 +1,7 @@
 package com.darkempire78.opencalculator
 
 import android.animation.LayoutTransition
+import android.app.Dialog
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.ClipData
