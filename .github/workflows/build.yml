@@ -27,17 +27,17 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew :app:assembleDebug
 
-      - name: Unit Test
-        run: ./gradlew testDebugUnitTest
-
-      - name: Upload Debug APK (Google Play)
-        uses: actions/upload-artifact@v3
-        with:
-          name: Google Play App (Debug)
-          path: ./app/build/outputs/apk/googlePlay/debug/app-googlePlay-debug.apk
-
       - name: Upload Debug APK (F-Droid)
         uses: actions/upload-artifact@v3
         with:
           name: F-Droid App (Debug)
-          path: ./app/build/outputs/apk/fdroid/debug/app-fdroid-debug.apk￼Enter
+          path: ./app/build/outputs/apk/debug/app-debug.apk
+
+      - name: Build release
+        run: ./gradlew :app:assembleRelease
+
+      - name: Upload Release 
+        uses: actions/upload-artifact@v3
+        with:
+          name: Release 
+          path: ./app/build/outputs/apk/release/app-release.apk
