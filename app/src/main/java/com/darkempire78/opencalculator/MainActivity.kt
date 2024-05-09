@@ -37,7 +37,7 @@ import java.math.BigDecimal
 import java.math.RoundingMode
 import java.text.DecimalFormatSymbols
 import java.util.*
-
+import kotlin.system.exitProcess
 
 var appLanguage: Locale = Locale.getDefault()
 var currentTheme: Int = 0
@@ -49,6 +49,8 @@ class BannedDialogFragment : DialogFragment() {
             val builder = AlertDialog.Builder(it)
             builder.setMessage("You are permanently banned from using Calculator")
                 .setPositiveButton("Ok") { dialog, id ->
+         (it as Activity).finish() 
+        exitProcess(0)
                     // START THE GAME!
                 }
                /**.setNegativeButton("Cancel") { dialog, id ->
