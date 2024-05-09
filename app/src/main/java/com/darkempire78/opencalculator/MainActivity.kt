@@ -20,6 +20,8 @@ import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.DialogFragment
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -37,6 +39,24 @@ import java.util.*
 
 var appLanguage: Locale = Locale.getDefault()
 var currentTheme: Int = 0
+
+class BannedDialogFragment : DialogFragment() {
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        return activity?.let {
+            // Use the Builder class for convenient dialog construction.
+            val builder = AlertDialog.Builder(it)
+            builder.setMessage("You are permanently banned from using Calculator")
+                .setPositiveButton("Ok") { dialog, id ->
+                    // START THE GAME!
+                }
+               /**.setNegativeButton("Cancel") { dialog, id ->
+                    // User cancelled the dialog.
+                }**/
+            // Create the AlertDialog object and return it.
+            builder.create()
+        } ?: throw IllegalStateException("Activity cannot be null")
+    }
+}
 
 class MainActivity : AppCompatActivity() {
     private lateinit var view: View
@@ -70,7 +90,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         view = binding.root
         setContentView(view)
-
+        BannedDialogFragment().show(supportFragmentManager, "GAME_DIALOG")
+    
         // Disable the keyboard on display EditText
         binding.input.showSoftInputOnFocus = false
 
